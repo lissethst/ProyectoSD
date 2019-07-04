@@ -1,0 +1,13 @@
+BackendBundle\Entity\User:
+    properties:
+        name:
+            - NotBlank: {mesagge: "El nombre no puede estar vacío"}
+        surname:
+            - NotBlank: {mesagge: "Los apellidos no pueden estar vacíos"}
+        nick:
+            - NotBlank: {mesagge: "El nickname no puede estar vacío"}
+        email:
+            - Email: 
+                message: El email {{ value }} no es válido.
+                checkMX: true
+

@@ -1,3 +1,4 @@
-home_publication:
-    path: /home
-    defaults: { _controller: AppBundle:Publication:index }
+following_follow:
+    path: /follow
+    defaults: { _controller: AppBundle:Following:follow }
+    methods: [POST]
