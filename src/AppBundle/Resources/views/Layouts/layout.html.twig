@@ -59,13 +59,23 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         &nbsp
                         Registro </a> </li>
+                        {% else %}
+                            <li>
+                                <a href="{{path("app_homepage")}}">
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                    &nbsp
+                                    Inicio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{path("user_list")}}">
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                    &nbsp
+                                    Gente
+                                </a>
+                            </li>
+                            
                         {% endif %}
-                        
-                        <li> <a href="{{path("user_edit")}}">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        &nbsp
-                        Mis datos </a> </li>
-                     </ul>
                         
                         {% if app.user != null %}
                             <ul class = "nav navbar-nav navbar-right">

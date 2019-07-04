@@ -169,5 +169,9 @@ class UserController extends Controller {
         
     }
     
+    public function userAction(Request $request){
+        var_dump("Users action");
+        die();
+    }
     
 }
