@@ -122,7 +122,7 @@ class UserController extends Controller {
                         ->setParameter('nick',$form->get("nick")->getData());
                 $user_isset = $query->getResult();
                 
-                if((count($user_isset)==0 || $user->getEmail() == $user_isset[0]->getEmail() && $user->getNick() == $user_isset[0]->getNick())){
+                if(($user->getEmail() == $user_isset[0]->getEmail() && $user->getNick() == $user_isset[0]->getNick())|| count($user_isset)==0){
                    
                    //UPLOAD FILE
                     $file = $form["image"]->getData();
@@ -169,18 +169,5 @@ class UserController extends Controller {
         
     }
     
-    public function userAction(Request $request){
-        $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT u FROM BackendBundle:User u";
-        $query = $em->createQuery($dql);
-        
-        $paginator = $this->get{'knp_paginator'};
-        $pagination = $paginator->paginate(
-                $query, $request->query->getInt('page',1),5
-        );
-        return $this->render('AppBundle:User:users.html.twig',array(
-           'pagination' => $pagination 
-        ));
-    }
     
 }
